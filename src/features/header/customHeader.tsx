@@ -44,27 +44,6 @@ const TopHeader = ({ onSettingsClick }: TopHeaderProps) => {
         </div>
       </div>
 
-      {/* Search Interface */}
-      <div className="max-w-md w-full">
-        <div className="relative group">
-          <input
-            type="text"
-            placeholder="Search ports, processes, services..."
-            className="relative w-full pl-11 pr-28 py-2.5 bg-background border-2 border-border rounded-xl text-sm focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/30 transition-all duration-200 placeholder:text-muted-foreground"
-          />
-          <div className="absolute right-3 top-1/2 transform -translate-y-1/2 flex items-center gap-2">
-            <Button
-              variant="ghost"
-              size="icon-sm"
-              className="h-7 w-7 rounded-lg bg-secondary hover:bg-secondary/80 transition-colors"
-              title="Filter"
-            >
-              <Search className="w-3.5 h-3.5 text-foreground" />
-            </Button>
-          </div>
-        </div>
-      </div>
-
       {/* Action Bar */}
       <div className="flex items-center gap-2.5">
         {/* Refresh Button */}
