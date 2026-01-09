@@ -10,12 +10,22 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const TopHeader = () => {
+interface TopHeaderProps {
+  onSettingsClick?: () => void;
+}
+
+const TopHeader = ({ onSettingsClick }: TopHeaderProps) => {
+  const handleSettingsClick = () => {
+    if (onSettingsClick) {
+      onSettingsClick();
+    }
+  };
+
   return (
-    <div className="flex items-center justify-between px-6 py-3.5 border-b border-border/30  ">
-      <div className="flex items-center gap-3.5 ">
+    <div className="flex items-center justify-between px-6 py-3.5 border-b border-border/30">
+      <div className="flex items-center gap-3.5">
         <div className="relative group">
-          <div className="w-10 h-10  bg-primary  rounded-md flex items-center justify-center">
+          <div className="w-10 h-10 bg-primary rounded-md flex items-center justify-center">
             <img
               src={Logo}
               alt="Port Killer"
@@ -25,7 +35,7 @@ const TopHeader = () => {
         </div>
 
         <div className="flex flex-col">
-          <div className="flex  flex-col items-start">
+          <div className="flex flex-col items-start">
             <div className="flex items-center gap-2">
               <h1 className="font-bold text-lg">Port Killer</h1>
               <span className="text-xs font-semibold text-primary bg-primary/15 px-2 py-0.5 rounded">
@@ -86,13 +96,14 @@ const TopHeader = () => {
           <div className="absolute -top-1.5 -right-1.5 w-3.5 h-3.5 bg-destructive/30 rounded-full animate-ping" />
         </div>
 
-        {/* Settings with Accent Color */}
+        {/* Settings with Accent Color - Now properly integrated */}
         <div className="relative">
           <Button
             variant="ghost"
             size="icon-sm"
             className="rounded-xl bg-accent/10 hover:bg-accent/20 transition-all duration-300 group hover:scale-105"
             title="Settings"
+            onClick={handleSettingsClick}
           >
             <Settings className="w-4.5 h-4.5 text-accent group-hover:rotate-90 transition-transform duration-300" />
           </Button>
